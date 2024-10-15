@@ -38,7 +38,9 @@ def index():
 def list_counters():
     """Lists all counters"""
     app.logger.info("Request to list all counters...")
-    counters = [{"name": name, "counter": count} for name, count in COUNTER.items()]
+    counters = []
+    for name, count in COUNTER.items():
+        counters.append({"name": name, "counter": count})
     return jsonify(counters)
 
 
